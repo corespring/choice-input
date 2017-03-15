@@ -35,13 +35,17 @@ export class ChoiceInput extends React.Component {
     const muiTheme = this.getTheme();
     const Tag = this.props.choiceMode === 'checkbox' ? Checkbox : RadioButton;
     const classSuffix = this.props.choiceMode === 'checkbox' ? 'checkbox' : 'radio-button';
+    const hasFeedback = this.props.feedback !== undefined;
+
     /**
      * TODO: should only really have 1 theme provider in the component tree.
      * but the way Checkbox is set up you can't tweak the styles via the props fully.
      * So have to use an additional MuiThemeProvider for now.
      */
     return <div className={"corespring-" + classSuffix}>
-      <FeedbackTick correctness={this.props.correctness} />
+      {
+        hasFeedback && <FeedbackTick correctness={this.props.correctness} />
+      }
       <div className="checkbox-holder">
         <MuiThemeProvider muiTheme={muiTheme}>
           <Tag
@@ -51,7 +55,9 @@ export class ChoiceInput extends React.Component {
             label={this.props['display-key'] + '. ' + this.props.label} />
         </MuiThemeProvider>
       </div>
-      <Feedback feedback={this.props.feedback} correctness={this.props.correctness} />
+      {
+        hasFeedback && <Feedback feedback={this.props.feedback} correctness={this.props.correctness} />
+      }
     </div>
   }
 };
