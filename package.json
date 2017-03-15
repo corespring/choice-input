@@ -1,0 +1,24 @@
+{
+  "name": "choice-input",
+  "version": "1.0.0",
+  "description": "",
+  "files" : [
+    "src/index.jsx"
+  ],
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {    
+    "react-tap-event-plugin": "^2.0.1",
+    "lodash": "^4.17.2",
+    "jquery": "^3.1.1",
+    "less": "^2.7.1",
+    "material-ui": "^0.16.4",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "babel-preset-react": "^6.16.0"
+  }
+}
