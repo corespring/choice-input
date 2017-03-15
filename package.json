@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "files" : [
-    "src/index.jsx"
+    "src/index.jsx",
+    "src/feedback.jsx",
+    "src/feedback-tick.jsx"
   ],
   "main": "src/index.jsx",
   "scripts": {
