@@ -37,7 +37,9 @@ export class ChoiceInput extends React.Component {
     const classSuffix = this.props.choiceMode === 'checkbox' ? 'checkbox' : 'radio-button';
     const feedbackStyle = {
       display: this.props.feedback !== undefined ? 'none' : 'block'
-    }
+    };
+    const label = (this.props['display-key'] !== undefined && this.props.label !== undefined) ? 
+      `${this.props['display-key']}.${this.props.label}` : undefined;
     /**
      * TODO: should only really have 1 theme provider in the component tree.
      * but the way Checkbox is set up you can't tweak the styles via the props fully.
@@ -51,7 +53,7 @@ export class ChoiceInput extends React.Component {
             disabled={this.props.disabled}
             checked={this._checked.bind(this)()}
             onCheck={this.onCheck.bind(this)}
-            label={this.props['display-key'] + '. ' + this.props.label} />
+            label={label} />
         </MuiThemeProvider>
       </div>
       <Feedback feedback={this.props.feedback} correctness={this.props.correctness} style={{feedbackStyle}} />
