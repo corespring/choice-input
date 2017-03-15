@@ -46,7 +46,7 @@ export class ChoiceInput extends React.Component {
      * So have to use an additional MuiThemeProvider for now.
      */
     return <div className={"corespring-" + classSuffix}>
-      <FeedbackTick correctness={this.props.correctness} style={{feedbackStyle}} />
+      { this.props.showFeedbackTick && <FeedbackTick correctness={this.props.correctness} style={{feedbackStyle}} /> }
       <div className="checkbox-holder">
         <MuiThemeProvider muiTheme={muiTheme}>
           <Tag
@@ -69,6 +69,7 @@ ChoiceInput.propTypes = {
   correctness: PropTypes.string,
   disabled: PropTypes.bool,
   feedback: PropTypes.string,
+  showFeedbackTick: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.string
@@ -76,6 +77,7 @@ ChoiceInput.propTypes = {
 
 
 ChoiceInput.defaultProps = {
+  showFeedbackTick: true
 };
 
 export default muiThemeable()(ChoiceInput);
